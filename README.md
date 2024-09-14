@@ -27,8 +27,8 @@ Antes de iniciar, certifique-se de ter os seguintes pré-requisitos instalados:
 ### Clonando o Repositório
 
 ```bash
-git clone https://github.com/yourusername/pharmaease-totem.git
-cd pharmaease-totem
+git clone https://github.com/RamonReserva/PharmaEaseTotem.git
+cd PharmaEaseTotem
 ```
 
 ### Construindo a Imagem Docker
