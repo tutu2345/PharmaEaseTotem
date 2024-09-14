@@ -30,23 +30,23 @@ public class ClienteController {
 
     // Salvar novo cliente
     @PostMapping
-    public String salvarCliente(@ModelAttribute("cliente") Cliente cliente) {
+    public String salvarCliente(@ModelAttribute Cliente cliente) {
         clienteRepository.save(cliente);  // Salva o cliente no banco de dados
         return "redirect:/clientes";  // Redireciona para a lista de clientes
     }
 
     // Editar cliente (carregar formulário com dados do cliente)
     @GetMapping("/editar/{id}")
-    public String editarClienteForm(@PathVariable("id") Long id, Model model) {
-        Cliente cliente = clienteRepository.findById(String.valueOf(id)).orElseThrow(() ->
-                new IllegalArgumentException("Cliente inválido: " + id));
-        model.addAttribute("cliente", cliente);  // Adiciona o cliente encontrado ao modelo
-        return "formCliente";  // Reutiliza o formulário de cliente para editar
+    public String mostrarFormularioEdicao(@PathVariable Long id, Model model) {
+        Cliente cliente = clienteRepository.findById(String.valueOf(id)).orElseThrow(() -> new IllegalArgumentException("Cliente inválido:" + id));
+        model.addAttribute("cliente", cliente);
+        return "formCliente";
     }
 
+
+
     // Atualizar cliente
-    @PostMapping("/atualizar/{id}")
-    public String atualizarCliente(@PathVariable("id") Long id, @ModelAttribute("cliente") Cliente clienteAtualizado) {
+    public String atualizarCliente(@PathVariable("id") Long id, @ModelAttribute Cliente clienteAtualizado) {
         clienteAtualizado.setId(id);  // Mantém o ID do cliente
         clienteRepository.save(clienteAtualizado);  // Atualiza o cliente no banco de dados
         return "redirect:/clientes";  // Redireciona para a lista de clientes

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Formulário de Cliente</title>
+    <title>Atualizar Cliente</title>
 </head>
 <body>
-<h1>Formulário de Cliente</h1>
-<form th:action="@{/clientes}" th:object="${cliente}" method="post">
+<h1>Atualizar Cliente</h1>
+<form th:action="@{/clientes/atualizar/{id}(id=${cliente.id})}" th:object="${cliente}" method="post">
     <label for="nome">Nome:</label>
     <input type="text" id="nome" th:field="*{nome}">
     <br>
@@ -14,7 +14,7 @@
     <input type="email" id="email" th:field="*{email}">
     <br>
 
-    <button type="submit">Salvar</button>
+    <button type="submit">Atualizar</button>
 </form>
 </body>
 </html>
