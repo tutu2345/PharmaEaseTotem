@@ -1,4 +1,4 @@
-Aqui está o `README.md` atualizado conforme solicitado:
+
 
 ```markdown
 # PharmaEaseTotem
