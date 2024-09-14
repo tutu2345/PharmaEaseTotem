@@ -194,13 +194,13 @@ Este projeto está licenciado sob a [Licença MIT](LICENSE).
 
 ## Contato
 
-Para mais informações, entre em contato com [Arthur Mitsuo Yamamoto](mailto:seu.email@example.com).
-```
+Para mais informações, entre em contato com [Arthur Mitsuo Yamamoto](arthuryamamoto0@gmail.com).
+
 
 ### **Observações**
 
-- **Substitua** `yourusername/pharmaease-totem` pelo URL do seu repositório GitHub.
+- **Substitua** `https://github.com/RamonReserva/PharmaEaseTotem.git` pelo URL do seu repositório GitHub.
 - **Substitua** `seu.email@example.com` pelo seu e-mail para contato.
 - **Scripts JSON**: Adicione os arquivos de script JSON na raiz do repositório e forneça seus conteúdos conforme necessário.
 
-Se precisar de mais ajustes ou informações adicionais, estou à disposição!
+
