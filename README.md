@@ -1,6 +1,6 @@
 
 
-```markdown
+
 # PharmaEaseTotem
 
 **PharmaEaseTotem** é uma API desenvolvida com Spring Boot para gerenciamento de dados farmacêuticos. Esta API é empacotada em um contêiner Docker e está configurada para ser implantada em uma máquina virtual Windows 10 no Azure, com um banco de dados Azure SQL.
