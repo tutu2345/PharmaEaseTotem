@@ -157,7 +157,7 @@ Aqui estão exemplos de requisições para testar os endpoints CRUD da API:
 
 ## Instrução de como Rodar a Aplicação
 
-1. Clone o repositório: https://github.com/ArthurMitsuoYamamoto/PharmaEaseTotem.git.
+1. Clone o repositório: https://github.com/RamonReserva/PharmaEaseTotem.git
 2. Abra o repositório no IntelliJ IDEA.
 3. No IntelliJ IDEA, selecione "Obter do Controle de Versão" e insira o URL do GitHub.
 4. O IntelliJ IDEA baixará automaticamente as dependências e construirá o projeto.
@@ -202,5 +202,6 @@ Para mais informações, entre em contato com [Arthur Mitsuo Yamamoto](arthuryam
 - **Substitua** `https://github.com/RamonReserva/PharmaEaseTotem.git` pelo URL do seu repositório GitHub.
 - **Substitua** `seu.email@example.com` pelo seu e-mail para contato.
 - **Scripts JSON**: Adicione os arquivos de script JSON na raiz do repositório e forneça seus conteúdos conforme necessário.
-
+- **Substitua** troque as responsabilidades de acordo com seu codigo ramon
+- **Substitua** adapte o cronograma de desenvolvimento
 
