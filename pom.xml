@@ -74,12 +74,6 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-		<dependency>
-			<groupId>com.h2database</groupId>
-			<artifactId>h2</artifactId>
-			<scope>runtime</scope>
-		</dependency>
-
 
 		<!-- Dependências para testes -->
 		<dependency>
@@ -103,6 +97,15 @@
 					<source>22</source>
 					<target>22</target>
 					<compilerArgs>--enable-preview</compilerArgs>
+				</configuration>
+			</plugin>
+			<!-- Configuração adicional para o maven-resources-plugin -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>3.3.0</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
 		</plugins>
