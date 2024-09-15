@@ -1,136 +1,201 @@
-# PharmaEaseTotem-API
-API do projeto PharmaEaseTotem - Facilitando o Acesso a Medicamentos
+# PharmaEaseTotem
 
-# Equipe de Desenvolvimento:
-Arthur Mitsuo Yamamoto -> rm551283 -> Responsabilidades Materias -> (.NET, DEVOPS, QA, MOBILE)
+**PharmaEaseTotem** é uma API desenvolvida com Spring Boot para gerenciamento de dados farmacêuticos. Esta API é empacotada em um contêiner Docker e está configurada para ser implantada em uma máquina virtual Windows 10 no Azure, com um banco de dados Azure SQL.
 
-Ramon Cezarino Lopez -> rm551279 -> Responsabilidades Materias -> (JAVA)
+## Estrutura do Projeto
 
-Luigi Ye -> rm552213 -> Responsabilidades Materias -> (IA)
+- **Código Fonte**: Diretório `src` contendo o código da aplicação.
+- **Dockerfile**: Arquivo para construir a imagem Docker.
+- **Maven Configuration**: Arquivo `pom.xml` para dependências e construção do projeto.
+- **Scripts JSON**: Scripts para operações CRUD na API.
 
-Enzo Lafer Gallucci -> rm551111 -> Responsabilidades Materias -> (BANCO DE DADOS)
+## Pré-requisitos
 
-Daniel dos Santos Araujo Faria -> rm99067 -> Responsabilidades Materias -> (MOBILE, QA)
+Antes de iniciar, certifique-se de ter os seguintes pré-requisitos instalados:
 
-**Cronograma de Desenvolvimento - PharmaEaseTotem**
----
+- [JDK 11](https://openjdk.java.net/projects/jdk/11/)
+- [Maven](https://maven.apache.org/)
+- [Docker](https://www.docker.com/get-started)
+- [Git](https://git-scm.com/)
+- Acesso ao [Docker Hub](https://hub.docker.com/) e ao [Azure](https://azure.microsoft.com/)
 
-**1. Definição das Atividades e Responsabilidades:**
+## Configuração do Ambiente
 
-- **Luigi Ye**:
-  - Desenvolvimento do backend para operações relacionadas ao 'Carrinhos'.
-- **Daniel dos Santos Araujo Faria**:
-  - Desenvolvimento do backend para operações relacionadas ao 'Cliente' e 'Pedido'.
-- **Enzo Lafer Gallucci**:
-  - Desenvolvimento do backend para operações relacionadas 'Remedio'.
-- **Ramon Cezarino Lopez**:
-  - Revisão de código.
-- **Arthur Mitsuo Yamamoto**:
-  - Documentação e gerenciamento de projetos.
+### Clonando o Repositório
 
----
+```bash
+git clone https://github.com/RamonReserva/PharmaEaseTotem.git
+cd pharmaease-totem
+```
 
-**2. Cronograma de Desenvolvimento:**
+### Construindo a Imagem Docker
+
+1. Certifique-se de que o Docker está instalado e em execução.
+2. Navegue até o diretório do projeto onde está localizado o `Dockerfile`.
+3. Execute o seguinte comando para construir a imagem Docker:
+
+```bash
+docker build -t pharmaease-totem .
+```
+
+### Executando a Aplicação Localmente com Docker
+
+Para testar a aplicação localmente, execute:
+
+```bash
+docker run -d -p 8080:8080 --name pharmaease-totem pharmaease-totem
+```
+
+A aplicação estará acessível em `http://localhost:8080`.
+
+## Configuração do Azure
+
+### Criar e Configurar a VM no Azure
+
+1. Acesse o [Azure Portal](https://portal.azure.com/).
+2. Crie uma nova VM com Windows 10.
+3. Instale o Docker Desktop na VM.
+4. Configure o firewall para permitir acesso às portas 22 (SSH) e 8080.
+
+### Configurar GitHub Actions
+
+1. No repositório GitHub, adicione os seguintes **secrets**:
+   - `DOCKER_USERNAME`: Nome de usuário do Docker Hub.
+   - `DOCKER_PASSWORD`: Senha do Docker Hub.
+   - `SSH_PRIVATE_KEY`: Chave privada SSH para acessar a VM.
+   - `VM_IP`: Endereço IP da sua VM.
+
+2. Crie um workflow no GitHub Actions usando o arquivo `deploy.yml` fornecido no diretório `.github/workflows/`.
+
+## Deploy da Aplicação
+
+### Configuração do Workflow GitHub Actions
+
+Certifique-se de que o arquivo `deploy.yml` está localizado em `.github/workflows/` e contém a configuração correta para o build e deploy.
+
+### Passos de Deploy
+
+1. **Push para o Branch Principal**:
+   - Quando você faz um push para o branch `main`, o workflow do GitHub Actions será acionado.
+   - O workflow irá:
+     - Fazer checkout do código.
+     - Construir a aplicação com Maven.
+     - Construir e enviar a imagem Docker para o Docker Hub.
+     - Fazer SSH para a VM Azure e atualizar o contêiner Docker.
+
+## Testes da API
+
+### Endpoints CRUD
+
+Aqui estão exemplos de requisições para testar os endpoints CRUD da API:
+
+- **Criar Recurso**:
+  ```http
+  POST http://localhost:8080/api/resources
+  Content-Type: application/json
+
+  {
+    "name": "Sample Resource",
+    "description": "This is a sample resource."
+  }
+  ```
+
+- **Ler Recurso**:
+  ```http
+  GET http://localhost:8080/api/resources/{id}
+  ```
+
+- **Atualizar Recurso**:
+  ```http
+  PUT http://localhost:8080/api/resources/{id}
+  Content-Type: application/json
+
+  {
+    "name": "Updated Resource",
+    "description": "This is an updated resource."
+  }
+  ```
+
+- **Excluir Recurso**:
+  ```http
+  DELETE http://localhost:8080/api/resources/{id}
+  ```
+
+## Scripts JSON CRUD
+
+- **Criar**: `create_resource.json`
+- **Ler**: `read_resource.json`
+- **Atualizar**: `update_resource.json`
+- **Excluir**: `delete_resource.json`
+
+## Equipe de Desenvolvimento
+
+- **Francineldo Luan Martins Alvelino** -> RM: 99558 -> Responsabilidades: Backend para operações relacionadas ao 'Carrinhos'.
+- **Daniel dos Santos Araujo Faria** -> RM: 99067 -> Responsabilidades: Backend para operações relacionadas ao 'Cliente' e 'Pedido'.
+- **Enzo Lafer Gallucci** -> RM: 551111 -> Responsabilidades: Backend para operações relacionadas a 'Remédio'.
+- **Ramon Cezarino Lopez** -> RM: 551279 -> Responsabilidades: Revisão de código.
+- **Arthur Mitsuo Yamamoto** -> RM: 551283 -> Responsabilidades: Documentação e gerenciamento de projetos.
+
+## Cronograma de Desenvolvimento
 
 **Semana 1:**
-- **Luigi Ye**:
-  - Implementação de 'Carrinhos'.
-- **Daniel**:
-  - Implementação de 'Cliente' e 'Pedido'.
-- **Enzo**:
-  - Implementação de 'Remedio'.
+- **Francineldo**: Implementação de 'Carrinhos'.
+- **Daniel**: Implementação de 'Cliente' e 'Pedido'.
+- **Enzo**: Implementação de 'Remédio'.
 
 **Semana 2:**
-- **Luigi Ye**:
-  - Testes e correções no carrinho.
-- **Daniel**:
-  - Testes e correções no cliente e no pedido.
-- **Enzo**:
-  - Testes e correções no remédio.
+- **Francineldo**: Testes e correções no carrinho.
+- **Daniel**: Testes e correções no cliente e no pedido.
+- **Enzo**: Testes e correções no remédio.
 
 **Semana 3:**
-- **Ramon e Arthur Mitsuo Yamamoto**:
-  - Revisão de código.
-- **Arthur Mitsuo Yamamoto**:
-  - Preparação da documentação técnica e do cronograma.
+- **Ramon e Arthur**: Revisão de código.
+- **Arthur**: Preparação da documentação técnica e do cronograma.
 
----
+## Instrução de como Rodar a Aplicação
 
-## Instrução de como rodar a aplicação
-1- Primeira coisa que precisamos fazer é clonar o repositório em sua máquina local.
+1. Clone o repositório: https://github.com/ArthurMitsuoYamamoto/PharmaEaseTotem.git.
+2. Abra o repositório no IntelliJ IDEA.
+3. No IntelliJ IDEA, selecione "Obter do Controle de Versão" e insira o URL do GitHub.
+4. O IntelliJ IDEA baixará automaticamente as dependências e construirá o projeto.
 
-2- Abra o repositório: https://github.com/ArthurMitsuoYamamoto/PharmaEaseTotem.git.
+## Link do Vídeo
 
-3- Agora que você tem o link do GitHub, precisa abrir o IntelliJ IDEA.
+[Vídeo de Configuração e Deploy](https://www.youtube.com/watch?v=Wf4Wggnx59g)
 
-4- Se você não tiver nenhuma opção de projetos, verá a tela de boas-vindas. 
+## Público-Alvo
 
-5- Você verá aqui uma opção para Obter do Controle de Versão (ou similar dependendo da versão do IntelliJ IDEA). 
-
-6- Se você já tiver um projeto aberto, poderá executar a mesma ação em Arquivo | Novo | Projeto no menu Controle de versão. 
-
-7- Em versões mais antigas do IntelliJ IDEA, você também pode usar ir para VCS | Obtenha no Controle de Versão . 
-
-8- Esta opção de menu foi renomeada para Git | Clone em versões mais recentes (quando você tiver um projeto Git existente aberto).
-
-9- Ao pressionar este botão, você terá a opção de selecionar o local do controle de versão, GitHub neste caso, e inserir o URL que está na área de transferência no campo URL.
-
-10- Pressione Enter ou Clone para clonar o repositório GitHub no diretório selecionado. 
-     O IntelliJ IDEA também pegará ferramentas de construção comuns, como Gradle ou Maven, e baixará automaticamente as dependências necessárias e construirá o projeto.
-
-11- Ao abrir a janela do projeto, você também verá que o IntelliJ IDEA detectou os módulos do projeto e configurou corretamente as pastas test , main e resources em um projeto Maven como este.
-
-## Link do vídeo:
-https://www.youtube.com/watch?v=Wf4Wggnx59g
-
-
-## Público-Alvo:
 O público-alvo são clientes de farmácias que buscam conveniência, recomendações de medicamentos e uma experiência tecnologicamente avançada usando IA através de um totem farmacêutico de autoatendimento.
 
-## Problemas que a aplicação se propõe a solucionar:
+## Problemas que a Aplicação se Propõe a Solucionar
 
-A proposta de um totem farmacêutico de autoatendimento visa abordar várias questões comuns encontradas em farmácias tradicionais, melhorando a experiência do cliente e otimizando o processo de compra de medicamentos. 
+- **Fila e Tempo de Espera Longos**: Reduz o tempo de espera ao automatizar o processo de compra.
+- **Falta de Personalização nas Recomendações**: Oferece sugestões personalizadas baseadas em histórico e sintomas.
+- **Dificuldade em Encontrar Medicamentos Específicos**: Informa a localização dos medicamentos nas prateleiras.
+- **Ineficiência no Atendimento no Balcão**: Fornece informações antecipadas para otimizar o atendimento.
+- **Falta de Feedback dos Clientes**: Coleta feedback sobre eficácia dos medicamentos e satisfação.
 
-A seguir, são detalhados os principais problemas que esta solução pretende solucionar:
+### Evolução em Comparação à Entrega da Sprint Anterior
 
-**Fila e Tempo de Espera Longos:**
+1. **Documentação**: Adicionada documentação online (Swagger-UI).
+2. **Conexão com Banco de Dados**: Implementação com SQL Azure.
+3. **Código**: Aprimoramento geral e remoção de classes desnecessárias.
 
-Problema: Clientes frequentemente enfrentam filas longas e tempos de espera elevados para obter atendimento nas farmácias.
+## Diagrama
 
-Solução: O totem automatiza parte do processo de compra, permitindo que os clientes selecionem medicamentos e recebam sugestões personalizadas antes de chegarem ao balcão, reduzindo significativamente o tempo de espera.
-Falta de Personalização nas Recomendações:
+[Link para baixar imagem do diagrama](https://www.mediafire.com/view/v01bx70h6qxbdy5/Imagem_do_WhatsApp_de_2024-09-14_%25C3%25A0%2528s%2529_18.58.02_156e96f2.jpg/file)
 
-Problema: As recomendações de medicamentos são geralmente baseadas em interações rápidas e sem um histórico detalhado do cliente, o que pode resultar em sugestões genéricas.
+## Licença
 
-Solução: Utilizando inteligência artificial, o totem oferece sugestões de medicamentos baseadas nas compras anteriores do cliente e nos sintomas informados, proporcionando uma experiência mais personalizada e assertiva.
-Dificuldade em Encontrar Medicamentos Específicos:
+Este projeto está licenciado sob a [Licença MIT](LICENSE).
 
-Problema: Clientes muitas vezes têm dificuldade em localizar medicamentos específicos nas prateleiras, necessitando da ajuda de um atendente.
+## Contato
 
-Solução: O totem informa diretamente ao cliente onde encontrar os medicamentos desejados nas prateleiras, facilitando o processo de compra sem a necessidade de intervenção de um atendente.
-Ineficiência no Atendimento no Balcão:
+Para mais informações, entre em contato com [Arthur Mitsuo Yamamoto](mailto:seu.email@example.com).
+```
 
-Problema: O processo de atendimento no balcão pode ser lento, especialmente quando os atendentes precisam iniciar o processo de assistência do zero.
+### **Observações**
 
-Solução: O totem gera uma senha para o recepcionista do balcão e envia as informações selecionadas pelo usuário para uma dashboard, permitindo que o atendente já saiba os medicamentos escolhidos pelo cliente antes mesmo de atendê-lo, otimizando a eficiência do atendimento.
-Falta de Feedback dos Clientes:
-
-Problema: Farmácias muitas vezes não coletam feedback suficiente sobre a eficácia dos medicamentos e a satisfação dos clientes.
-
-Solução: Após a compra, o totem solicita ao cliente que informe o sintoma tratado e avalie a satisfação com o produto de 0 a 5 estrelas. Este feedback é coletado antes da geração da senha para retirada do medicamento no balcão, proporcionando dados valiosos para a farmácia melhorar seus serviços e produtos
-
-### Evolução em comparação a entrega da Sprint anterior:
-1- Evoluímos mais a fundo a ideia, corrijimos, alteramos e criamos algumas classes que após uma longa discussão, chegamos ao consenso de serem inúteis.
-
-2- Agora possui uma documentação online (Swagger-UI), para  --> http://localhost:8080/swagger-ui/index.html
-
-3- Conexão com banco de dados (SQL)
-
-4- Aprimoramento do código num geral
-
-
-### Diagrama:
-
-link para baixar imagem do diagrama:
-https://www.mediafire.com/file/34jpnvi9gz038g3/Diagrama_sem_nome.drawio.png/file
-
+- **Substitua** `yourusername/pharmaease-totem` pelo URL do seu repositório GitHub.
+- **Substitua** `seu.email@example.com` pelo seu e-mail para contato.
+- **Scripts JSON**: Adicione os arquivos de script JSON na raiz do repositório e forneça seus conteúdos conforme necessário.
