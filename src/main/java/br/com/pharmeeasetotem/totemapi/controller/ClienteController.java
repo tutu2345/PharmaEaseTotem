@@ -1,8 +1,10 @@
 package br.com.pharmeeasetotem.totemapi.controller;
 
-import br.com.pharmeeasetotem.totemapi.model.Cliente;
-import br.com.pharmeeasetotem.totemapi.repository.ClienteRepository;
+import br.com.pharmeeasetotem.totemapi.DTO.ClienteDTO;
+import br.com.pharmeeasetotem.totemapi.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,52 +14,55 @@ import org.springframework.web.bind.annotation.*;
 public class ClienteController {
 
     @Autowired
-    private ClienteRepository clienteRepository;
+    private ClienteService clienteService;
 
     // Listar todos os clientes
     @GetMapping
     public String listarClientes(Model model) {
-        model.addAttribute("clientes", clienteRepository.findAll());
+        model.addAttribute("clientes", clienteService.listarTodosClientes());
         return "listarClientes";  // Nome do template Thymeleaf para listar os clientes
     }
 
     // Formulário para criar novo cliente
     @GetMapping("/novo")
     public String novoClienteForm(Model model) {
-        model.addAttribute("cliente", new Cliente());  // Cria um objeto Cliente vazio
+        model.addAttribute("cliente", new ClienteDTO());  // Cria um objeto ClienteDTO vazio
         return "formCliente";  // Nome do template Thymeleaf para o formulário de cliente
     }
 
-    // Salvar novo cliente
+    // Salvar novo cliente (via Thymeleaf)
     @PostMapping
-    public String salvarCliente(@ModelAttribute Cliente cliente) {
-        clienteRepository.save(cliente);  // Salva o cliente no banco de dados
+    public String salvarCliente(@ModelAttribute ClienteDTO clienteDTO) {
+        clienteService.criarCliente(clienteDTO);  // Salva o cliente usando o DTO
         return "redirect:/clientes";  // Redireciona para a lista de clientes
+    }
+
+    // Salvar novo cliente (via JSON)
+    @PostMapping("/json")
+    public ResponseEntity<String> salvarClienteJson(@RequestBody ClienteDTO clienteDTO) {
+        clienteService.criarCliente(clienteDTO);  // Salva o cliente usando o DTO
+        return ResponseEntity.status(HttpStatus.CREATED).body("Cliente criado com sucesso");  // Retorna resposta de sucesso
     }
 
     // Editar cliente (carregar formulário com dados do cliente)
     @GetMapping("/editar/{id}")
     public String mostrarFormularioEdicao(@PathVariable Long id, Model model) {
-        Cliente cliente = clienteRepository.findById(String.valueOf(id)).orElseThrow(() -> new IllegalArgumentException("Cliente inválido:" + id));
-        model.addAttribute("cliente", cliente);
-        return "formCliente";
+        ClienteDTO clienteDTO = clienteService.obterClientePorId(id);
+        model.addAttribute("cliente", clienteDTO);
+        return "formCliente";  // Usa o mesmo formulário para edição
     }
 
-
-
     // Atualizar cliente
-    public String atualizarCliente(@PathVariable("id") Long id, @ModelAttribute Cliente clienteAtualizado) {
-        clienteAtualizado.setId(id);  // Mantém o ID do cliente
-        clienteRepository.save(clienteAtualizado);  // Atualiza o cliente no banco de dados
+    @PostMapping("/atualizar/{id}")
+    public String atualizarCliente(@PathVariable Long id, @ModelAttribute ClienteDTO clienteDTO) {
+        clienteService.atualizarCliente(id, clienteDTO);  // Atualiza o cliente no banco de dados usando o DTO
         return "redirect:/clientes";  // Redireciona para a lista de clientes
     }
 
     // Deletar cliente
     @GetMapping("/deletar/{id}")
-    public String deletarCliente(@PathVariable("id") Long id) {
-        Cliente cliente = clienteRepository.findById(String.valueOf(id)).orElseThrow(() ->
-                new IllegalArgumentException("Cliente inválido: " + id));
-        clienteRepository.delete(cliente);  // Remove o cliente do banco de dados
+    public String deletarCliente(@PathVariable Long id) {
+        clienteService.deletarCliente(id);  // Remove o cliente do banco de dados
         return "redirect:/clientes";  // Redireciona para a lista de clientes
     }
 }
