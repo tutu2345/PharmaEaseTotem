@@ -202,7 +202,7 @@ Content-Type: application/json
 - **Daniel**:
     - Testes e correções no DTO'.
 - **Enzo**:
-    - .
+    - Testes envolvendo o TimeLeaf.
 
 **Semana 3:**
 - **Ramon e Arthur Mitsuo Yamamoto**:
