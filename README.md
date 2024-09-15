@@ -2,83 +2,90 @@
 API do projeto PharmaEaseTotem - Facilitando o Acesso a Medicamentos
 
 # Equipe de Desenvolvimento:
-Arthur Mitsuo Yamamoto -> rm551283 -> Responsabilidades Materias -> (.NET, DEVOPS, QA, MOBILE)
-
-Ramon Cezarino Lopez -> rm551279 -> Responsabilidades Materias -> (JAVA)
-
-Luigi Ye -> rm552213 -> Responsabilidades Materias -> (IA)
-
-Enzo Lafer Gallucci -> rm551111 -> Responsabilidades Materias -> (BANCO DE DADOS)
-
-Daniel dos Santos Araujo Faria -> rm99067 -> Responsabilidades Materias -> (MOBILE, QA)
+Arthur - IA, Mobile, DevOps
+Daniel - .NET
+Enzo - Banco de dados
+Francis - QA, Devops
+Ramon - Java
 
 **Cronograma de Desenvolvimento - PharmaEaseTotem**
 ---
 
 **1. Definição das Atividades e Responsabilidades:**
 
-- **Luigi Ye**:
-  - Desenvolvimento do backend para operações relacionadas ao 'Carrinhos'.
+- **Francis**:
+    - Desenvolvimento dos forms.
 - **Daniel dos Santos Araujo Faria**:
-  - Desenvolvimento do backend para operações relacionadas ao 'Cliente' e 'Pedido'.
+    - Desenvolvimento do backend para operações relacionadas ao DTO'.
 - **Enzo Lafer Gallucci**:
-  - Desenvolvimento do backend para operações relacionadas 'Remedio'.
+    - Ajustes nos services e adição ni TimeLeaf.
 - **Ramon Cezarino Lopez**:
-  - Revisão de código.
+    - Revisão de código.
 - **Arthur Mitsuo Yamamoto**:
-  - Documentação e gerenciamento de projetos.
+    - Documentação e gerenciamento de projetos.
 
 ---
 
 **2. Cronograma de Desenvolvimento:**
 
 **Semana 1:**
-- **Luigi Ye**:
-  - Implementação de 'Carrinhos'.
+- **Francis**:
+    - Implementação dos Forms'.
 - **Daniel**:
-  - Implementação de 'Cliente' e 'Pedido'.
+    - Implementação do DTO'.
 - **Enzo**:
-  - Implementação de 'Remedio'.
+    - Mudanças no ClenteService e adição do TimeLeaf.
 
 **Semana 2:**
-- **Luigi Ye**:
-  - Testes e correções no carrinho.
+- **Francis**:
+    - Correção de problemas nos forms.
 - **Daniel**:
-  - Testes e correções no cliente e no pedido.
+    - Testes e correções no DTO'.
 - **Enzo**:
-  - Testes e correções no remédio.
+    - .
 
 **Semana 3:**
 - **Ramon e Arthur Mitsuo Yamamoto**:
-  - Revisão de código.
+    - Revisão de código.
 - **Arthur Mitsuo Yamamoto**:
-  - Preparação da documentação técnica e do cronograma.
+    - Preparação da documentação técnica e do cronograma.
 
 ---
 
 ## Instrução de como rodar a aplicação
-1- Primeira coisa que precisamos fazer é clonar o repositório em sua máquina local.
+1. Clonar o Repositório
+   Primeiro, clone o repositório em sua máquina local:
+   git clone https://github.com/RamonReserva/PharmaEaseTotem.git
+2. Abrir o Projeto no IntelliJ IDEA
+   Abra o IntelliJ IDEA.
 
-2- Abra o repositório: https://github.com/ArthurMitsuoYamamoto/PharmaEaseTotem.git.
+No menu inicial, selecione a opção "Obter do Controle de Versão" (ou "Get from Version Control").
 
-3- Agora que você tem o link do GitHub, precisa abrir o IntelliJ IDEA.
+Insira o link do repositório GitHub no campo URL:https://github.com/RamonReserva/PharmaEaseTotem.git
+Clique em Clone para baixar o projeto.
 
-4- Se você não tiver nenhuma opção de projetos, verá a tela de boas-vindas. 
+O IntelliJ IDEA irá automaticamente detectar as ferramentas de construção (como Maven) e baixar as dependências necessárias.
 
-5- Você verá aqui uma opção para Obter do Controle de Versão (ou similar dependendo da versão do IntelliJ IDEA). 
+3. Configuração do Maven
+   Ao abrir o projeto, o Maven será configurado automaticamente. Certifique-se de que as dependências foram baixadas corretamente.
 
-6- Se você já tiver um projeto aberto, poderá executar a mesma ação em Arquivo | Novo | Projeto no menu Controle de versão. 
+Se necessário, você pode rodar o seguinte comando no terminal do IntelliJ para garantir que todas as dependências estão instaladas:
+mvn clean install
+4. Rodar a Aplicação
+   A classe principal do projeto é TotemApiApplication. Para rodar o projeto:
 
-7- Em versões mais antigas do IntelliJ IDEA, você também pode usar ir para VCS | Obtenha no Controle de Versão . 
+No painel de navegação do IntelliJ IDEA, localize a classe TotemApiApplication dentro do pacote:
 
-8- Esta opção de menu foi renomeada para Git | Clone em versões mais recentes (quando você tiver um projeto Git existente aberto).
 
-9- Ao pressionar este botão, você terá a opção de selecionar o local do controle de versão, GitHub neste caso, e inserir o URL que está na área de transferência no campo URL.
+src/main/java/br/com/pharmeeasetotem/totemapi/TotemApiApplication.java
+Clique com o botão direito sobre a classe e selecione Run 'TotemApiApplication' para iniciar a aplicação.
 
-10- Pressione Enter ou Clone para clonar o repositório GitHub no diretório selecionado. 
-     O IntelliJ IDEA também pegará ferramentas de construção comuns, como Gradle ou Maven, e baixará automaticamente as dependências necessárias e construirá o projeto.
+5. Acessar a Aplicação
+   Com a aplicação em execução, você pode acessar a API localmente através do seguinte endereço:
 
-11- Ao abrir a janela do projeto, você também verá que o IntelliJ IDEA detectou os módulos do projeto e configurou corretamente as pastas test , main e resources em um projeto Maven como este.
+http://localhost:8080
+
+
 
 ## Link do vídeo:
 https://www.youtube.com/watch?v=Wf4Wggnx59g
@@ -89,7 +96,7 @@ O público-alvo são clientes de farmácias que buscam conveniência, recomenda�
 
 ## Problemas que a aplicação se propõe a solucionar:
 
-A proposta de um totem farmacêutico de autoatendimento visa abordar várias questões comuns encontradas em farmácias tradicionais, melhorando a experiência do cliente e otimizando o processo de compra de medicamentos. 
+A proposta de um totem farmacêutico de autoatendimento visa abordar várias questões comuns encontradas em farmácias tradicionais, melhorando a experiência do cliente e otimizando o processo de compra de medicamentos.
 
 A seguir, são detalhados os principais problemas que esta solução pretende solucionar:
 
@@ -120,17 +127,8 @@ Problema: Farmácias muitas vezes não coletam feedback suficiente sobre a efic�
 Solução: Após a compra, o totem solicita ao cliente que informe o sintoma tratado e avalie a satisfação com o produto de 0 a 5 estrelas. Este feedback é coletado antes da geração da senha para retirada do medicamento no balcão, proporcionando dados valiosos para a farmácia melhorar seus serviços e produtos
 
 ### Evolução em comparação a entrega da Sprint anterior:
-1- Evoluímos mais a fundo a ideia, corrijimos, alteramos e criamos algumas classes que após uma longa discussão, chegamos ao consenso de serem inúteis.
+1-Implementação do Thymeleaf: Ajudei a configurar e implementar o Thymeleaf para renderizar formulários HTML, criar listagens de clientes e estruturar a interação entre o back-end e o front-end. Fizemos isso para integrar as funcionalidades de CRUD com templates HTML.
 
-2- Agora possui uma documentação online (Swagger-UI), para  --> http://localhost:8080/swagger-ui/index.html
+2-Refatoração do Controller com DTOs: Refatoramos o ClienteController para utilizar DTOs (Data Transfer Objects), otimizando a comunicação entre o front-end e o back-end. Isso melhorou a separação de responsabilidades e tornou o código mais limpo e organizado.
 
-3- Conexão com banco de dados (SQL)
-
-4- Aprimoramento do código num geral
-
-
-### Diagrama:
-
-link para baixar imagem do diagrama:
-https://www.mediafire.com/file/34jpnvi9gz038g3/Diagrama_sem_nome.drawio.png/file
-
+3-Criação de Instruções para Deploy com Docker: Trabalhamos juntos na configuração do Docker e criamos um fluxo de deploy usando o Docker, além de resolver problemas no GitHub Actions. Com isso, estabelecemos um caminho mais claro para rodar o projeto tanto localmente quanto em um container.
