@@ -1,14 +1,21 @@
 spring:
   application:
     name: totem-api
+
+  # Configurações de perfis
+  profiles:
+    active: dev  # Ou 'prod' dependendo do perfil que você quer ativar
+
+  # Configuração do datasource
   datasource:
-    url: ${DB_URL}
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: ${DB_URL}  # URL do banco de dados, pode ser substituído pelo valor diretamente ou pela variável de ambiente
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    username: ${DB_USERNAME}  # Nome de usuário do banco de dados
+    password: ${DB_PASSWORD}  # Senha do banco de dados
+
+  # Configuração do JPA
   jpa:
     hibernate:
       ddl-auto: update
-    database: mysql
-    database-platform: org.hibernate.dialect.MySQLDialect
+    database-platform: org.hibernate.dialect.SQLServerDialect
     show-sql: true

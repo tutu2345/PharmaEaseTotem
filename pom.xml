@@ -48,6 +48,13 @@
 			<scope>runtime</scope>
 		</dependency>
 
+		<!-- Microsoft SQL Server JDBC Driver -->
+		<dependency>
+			<groupId>com.microsoft.sqlserver</groupId>
+			<artifactId>mssql-jdbc</artifactId>
+			<version>12.8.1.jre11</version>
+		</dependency>
+
 		<!-- Lombok (para reduzir o boilerplate do código) -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -81,7 +88,6 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-
 	</dependencies>
 
 	<build>
