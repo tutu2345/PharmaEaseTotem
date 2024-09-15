@@ -1,6 +1,38 @@
+Aqui está a versão atualizada do seu **README.md** com links de navegação internos:
+
+---
+
 # PharmaEaseTotem
 
 **PharmaEaseTotem** é uma API desenvolvida com Spring Boot para gerenciamento de dados farmacêuticos. Esta API é empacotada em um contêiner Docker e está configurada para ser implantada em uma máquina virtual Windows 10 no Azure, com um banco de dados Azure SQL.
+
+## Tabela de Conteúdos
+
+- [Estrutura do Projeto](#estrutura-do-projeto)
+- [Pré-requisitos](#pré-requisitos)
+- [Configuração do Ambiente](#configuração-do-ambiente)
+  - [Clonando o Repositório](#clonando-o-repositório)
+  - [Construindo a Imagem Docker](#construindo-a-imagem-docker)
+  - [Executando a Aplicação Localmente com Docker](#executando-a-aplicação-localmente-com-docker)
+- [Configuração do Azure](#configuração-do-azure)
+  - [Criar e Configurar a VM no Azure](#criar-e-configurar-a-vm-no-azure)
+  - [Configurar GitHub Actions](#configurar-github-actions)
+- [Deploy da Aplicação](#deploy-da-aplicação)
+  - [Configuração do Workflow GitHub Actions](#configuração-do-workflow-github-actions)
+  - [Passos de Deploy](#passos-de-deploy)
+- [Testes da API](#testes-da-api)
+  - [Endpoints CRUD](#endpoints-crud)
+- [Scripts JSON CRUD](#scripts-json-crud)
+- [Equipe de Desenvolvimento](#equipe-de-desenvolvimento)
+- [Cronograma de Desenvolvimento](#cronograma-de-desenvolvimento)
+- [Instrução de como Rodar a Aplicação](#instrução-de-como-rodar-a-aplicação)
+- [Link do Vídeo](#link-do-vídeo)
+- [Público-Alvo](#público-alvo)
+- [Problemas que a Aplicação se Propõe a Solucionar](#problemas-que-a-aplicação-se-propõe-a-solucionar)
+- [Evolução em Comparação à Entrega da Sprint Anterior](#evolução-em-comparação-à-entrega-da-sprint-anterior)
+- [Diagrama](#diagrama)
+- [Licença](#licença)
+- [Contato](#contato)
 
 ## Estrutura do Projeto
 
@@ -175,7 +207,9 @@ O público-alvo são clientes de farmácias que buscam conveniência, recomenda�
 - **Ineficiência no Atendimento no Balcão**: Fornece informações antecipadas para otimizar o atendimento.
 - **Falta de Feedback dos Clientes**: Coleta feedback sobre eficácia dos medicamentos e satisfação.
 
-### Evolução em Comparação à Entrega da Sprint Anterior
+## Evol
+
+ução em Comparação à Entrega da Sprint Anterior
 
 1. **Documentação**: Adicionada documentação online (Swagger-UI).
 2. **Conexão com Banco de Dados**: Implementação com SQL Azure.
@@ -192,10 +226,7 @@ Este projeto está licenciado sob a [Licença MIT](LICENSE).
 ## Contato
 
 Para mais informações, entre em contato com [Arthur Mitsuo Yamamoto](mailto:seu.email@example.com).
-```
 
-### **Observações**
+---
 
-- **Substitua** `yourusername/pharmaease-totem` pelo URL do seu repositório GitHub.
-- **Substitua** `seu.email@example.com` pelo seu e-mail para contato.
-- **Scripts JSON**: Adicione os arquivos de script JSON na raiz do repositório e forneça seus conteúdos conforme necessário.
+Os links de navegação foram adicionados na tabela de conteúdos e ao longo do documento para facilitar o acesso aos tópicos relevantes!
