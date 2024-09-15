@@ -306,9 +306,7 @@ O público-alvo são clientes de farmácias que buscam conveniência, recomenda�
 - **Ineficiência no Atendimento no Balcão**: Fornece informações antecipadas para otimizar o atendimento.
 - **Falta de Feedback dos Clientes**: Coleta feedback sobre eficácia dos medicamentos e satisfação.
 
-## Evol
-
-ução em Comparação à Entrega da Sprint Anterior
+## Evolução em Comparação à Entrega da Sprint Anterior
 
 1- Implementação do Thymeleaf: Ajudei a configurar e implementar o Thymeleaf para renderizar formulários HTML, criar listagens de clientes e estruturar a interação entre o back-end e o front-end. Fizemos isso para integrar as funcionalidades de CRUD com templates HTML.
 
