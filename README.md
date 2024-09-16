@@ -170,7 +170,7 @@ Content-Type: application/json
 
 - **deletar recurso**:
  ```
-http://localhost:8080/clientes/{id}
+http://localhost:8080/clientes/deletar/{id}
   ```
 
 ## Scripts JSON CRUD
