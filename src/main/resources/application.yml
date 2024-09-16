@@ -8,10 +8,10 @@ spring:
 
   # Configuração do datasource
   datasource:
-    url: ${DB_URL}  # URL do banco de dados, pode ser substituído pelo valor diretamente ou pela variável de ambiente
+    url: https://portal.azure.com/#@fiap.com.br/resource/subscriptions/176d4cd6-7ccc-4c01-9219-035ae619ed3c/resourceGroups/pharme/providers/Microsoft.Sql/servers/pharmaease/databases/pharmaease_totem_db/overview  # URL do banco de dados, pode ser substituído pelo valor diretamente ou pela variável de ambiente
     driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
-    username: ${DB_USERNAME}  # Nome de usuário do banco de dados
-    password: ${DB_PASSWORD}  # Senha do banco de dados
+    username: RM551283 # Nome de usuário do banco de dados
+    password: FIAP@RM_551283  # Senha do banco de dados
 
   # Configuração do JPA
   jpa:
