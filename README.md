@@ -146,7 +146,7 @@ Certifique-se de que o arquivo `deploy.yml` está localizado em `.github/workflo
 Aqui estão exemplos de requisições para testar os endpoints CRUD da API:
 
 
-POST http://localhost:8080/api/clientes
+POST http://localhost:8080/clientes
 Content-Type: application/json
 
 {
@@ -155,12 +155,12 @@ Content-Type: application/json
 }
 
   ```
-  GET http://localhost:8080/api/clientes/{id}
+  GET http://localhost:8080/clientes/{id}
   ```
 
 - **Atualizar Recurso**:
   ```http
-  PUT http://localhost:8080/api/clientes/{id}
+  PUT http://localhost:8080/clientes/{id}
 Content-Type: application/json
 
 {
@@ -170,7 +170,7 @@ Content-Type: application/json
 
 - **deletar recurso**:
  ```
-http://localhost:8080/api/clientes/{id}
+http://localhost:8080/clientes/{id}
   ```
 
 ## Scripts JSON CRUD
