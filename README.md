@@ -292,7 +292,9 @@ A API PharmaEaseTotem visa abordar vários problemas comuns encontrados em farm�
 
 ## Link do Vídeo
 
-[Vídeo de Configuração e Deploy](https://www.youtube.com/watch?v=Wf4Wggnx59g)
+[Vídeo - IDEIA](https://www.youtube.com/watch?v=Wf4Wggnx59g)
+
+[Vídeo - da API](https://youtu.be/w8-xFl1VgWk?si=nSMsxb9n0a3iMrZo)
 
 ## Público-Alvo
 
