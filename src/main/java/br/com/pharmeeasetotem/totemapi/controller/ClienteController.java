@@ -49,7 +49,7 @@ public class ClienteController {
     public String mostrarFormularioEdicao(@PathVariable Long id, Model model) {
         ClienteDTO clienteDTO = clienteService.obterClientePorId(id);
         model.addAttribute("cliente", clienteDTO);
-        return "formCliente";  // Usa o mesmo formulário para edição
+        return "formAtualizarCliente";  // Usa o mesmo formulário para edição
     }
 
     // Atualizar cliente

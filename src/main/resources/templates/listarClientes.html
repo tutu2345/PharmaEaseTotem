@@ -2,26 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Clientes</title>
-    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <title th:text="#{titulo}">Lista de Clientes</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
 
-<h1>Lista de Clientes</h1>
+<h1 th:text="#{cliente.lista.titulo}">Lista de Clientes</h1>
 
 <!-- Verifica se há clientes -->
 <div th:if="${#lists.isEmpty(clientes)}">
-    <p>Nenhum cliente encontrado.</p>
+    <p th:text="#{cliente.lista.vazio}">Nenhum cliente encontrado.</p>
 </div>
 
 <!-- Tabela de clientes -->
 <table th:if="${!#lists.isEmpty(clientes)}">
     <thead>
     <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Email</th>
-        <th>Ações</th>
+        <th th:text="#{cliente.lista.id}">ID</th>
+        <th th:text="#{cliente.nome}">Nome</th>
+        <th th:text="#{cliente.email}">Email</th>
+        <th th:text="#{cliente.lista.acoes}">Ações</th>
     </tr>
     </thead>
     <tbody>
@@ -30,7 +30,7 @@
         <td th:text="${cliente.nome}"></td>
         <td th:text="${cliente.email}"></td>
         <td>
-            <a th:href="@{/clientes/editar/{id}(id=${cliente.id})}">Editar</a> |
+            <a th:href="@{/clientes/editar/{id}(id=${cliente.id})}" th:text="#{cliente.lista.editar}">Editar</a> |
             <a th:href="@{/clientes/deletar/{id}(id=${cliente.id})}"
                onclick="return confirm('Tem certeza que deseja excluir este cliente?');">Deletar</a>
         </td>
