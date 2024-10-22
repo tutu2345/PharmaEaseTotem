@@ -248,37 +248,39 @@ http://localhost:8080
 ## Público-Alvo:
 O público-alvo são clientes de farmácias que buscam conveniência, recomendações de medicamentos e uma experiência tecnologicamente avançada usando IA através de um totem farmacêutico de autoatendimento.
 
-## Problemas que a aplicação se propõe a solucionar:
 
-A proposta de um totem farmacêutico de autoatendimento visa abordar várias questões comuns encontradas em farmácias tradicionais, melhorando a experiência do cliente e otimizando o processo de compra de medicamentos.
+---
 
-A seguir, são detalhados os principais problemas que esta solução pretende solucionar:
+**Problemas que a aplicação se propõe a solucionar:**
 
-**Fila e Tempo de Espera Longos:**
+A API PharmaEaseTotem visa abordar vários problemas comuns encontrados em farmácias, melhorando a experiência do cliente e otimizando o processo de compra de medicamentos. A seguir, são detalhados os principais problemas que a solução pretende resolver:
 
-Problema: Clientes frequentemente enfrentam filas longas e tempos de espera elevados para obter atendimento nas farmácias.
+1. **Fila e Tempo de Espera Longos:**
 
-Solução: O totem automatiza parte do processo de compra, permitindo que os clientes selecionem medicamentos e recebam sugestões personalizadas antes de chegarem ao balcão, reduzindo significativamente o tempo de espera.
-Falta de Personalização nas Recomendações:
+   - **Problema:** Clientes frequentemente enfrentam filas longas e tempos de espera elevados para obter atendimento nas farmácias.
+   - **Solução:** A API fornece sugestões personalizadas e permite que os clientes façam pedidos de medicamentos de forma eficiente. A comunicação direta com a farmácia agiliza o atendimento e reduz o tempo de espera.
 
-Problema: As recomendações de medicamentos são geralmente baseadas em interações rápidas e sem um histórico detalhado do cliente, o que pode resultar em sugestões genéricas.
+2. **Falta de Personalização nas Recomendações:**
 
-Solução: Utilizando inteligência artificial, o totem oferece sugestões de medicamentos baseadas nas compras anteriores do cliente e nos sintomas informados, proporcionando uma experiência mais personalizada e assertiva.
-Dificuldade em Encontrar Medicamentos Específicos:
+   - **Problema:** As recomendações de medicamentos são frequentemente genéricas, baseadas apenas em interações rápidas sem histórico detalhado do cliente.
+   - **Solução:** A API utiliza dados de compras anteriores e sintomas informados para oferecer recomendações personalizadas de medicamentos, proporcionando uma experiência mais assertiva e adaptada às necessidades individuais dos clientes.
 
-Problema: Clientes muitas vezes têm dificuldade em localizar medicamentos específicos nas prateleiras, necessitando da ajuda de um atendente.
+3. **Dificuldade em Encontrar Medicamentos Específicos:**
 
-Solução: O totem informa diretamente ao cliente onde encontrar os medicamentos desejados nas prateleiras, facilitando o processo de compra sem a necessidade de intervenção de um atendente.
-Ineficiência no Atendimento no Balcão:
+   - **Problema:** Clientes têm dificuldade em localizar medicamentos específicos nas prateleiras das farmácias.
+   - **Solução:** A API oferece informações detalhadas sobre a localização dos medicamentos nas farmácias, facilitando a busca e a compra sem a necessidade de assistência adicional.
 
-Problema: O processo de atendimento no balcão pode ser lento, especialmente quando os atendentes precisam iniciar o processo de assistência do zero.
+4. **Ineficiência no Atendimento no Balcão:**
 
-Solução: O totem gera uma senha para o recepcionista do balcão e envia as informações selecionadas pelo usuário para uma dashboard, permitindo que o atendente já saiba os medicamentos escolhidos pelo cliente antes mesmo de atendê-lo, otimizando a eficiência do atendimento.
-Falta de Feedback dos Clientes:
+   - **Problema:** O atendimento no balcão pode ser lento, especialmente quando os atendentes precisam iniciar o processo de assistência do zero.
+   - **Solução:** A API permite que as informações dos pedidos sejam enviadas diretamente para o balcão, onde os atendentes podem acessar os detalhes do pedido e da seleção do cliente antes mesmo de iniciar o atendimento, melhorando a eficiência.
 
-Problema: Farmácias muitas vezes não coletam feedback suficiente sobre a eficácia dos medicamentos e a satisfação dos clientes.
+5. **Falta de Feedback dos Clientes:**
 
-Solução: Após a compra, o totem solicita ao cliente que informe o sintoma tratado e avalie a satisfação com o produto de 0 a 5 estrelas. Este feedback é coletado antes da geração da senha para retirada do medicamento no balcão, proporcionando dados valiosos para a farmácia melhorar seus serviços e produtos
+   - **Problema:** Farmácias frequentemente não coletam feedback suficiente sobre a eficácia dos medicamentos e a satisfação dos clientes.
+   - **Solução:** A API coleta feedback dos clientes sobre os medicamentos comprados, incluindo a avaliação de satisfação e os sintomas tratados, fornecendo dados valiosos para melhorar produtos e serviços.
+
+---
 
 ### Evolução em comparação a entrega da Sprint anterior:
 1-Implementação do Thymeleaf: Ajudei a configurar e implementar o Thymeleaf para renderizar formulários HTML, criar listagens de clientes e estruturar a interação entre o back-end e o front-end. Fizemos isso para integrar as funcionalidades de CRUD com templates HTML.
@@ -290,7 +292,9 @@ Solução: Após a compra, o totem solicita ao cliente que informe o sintoma tra
 
 ## Link do Vídeo
 
-[Vídeo de Configuração e Deploy](https://www.youtube.com/watch?v=Wf4Wggnx59g)
+[Vídeo - IDEIA](https://www.youtube.com/watch?v=Wf4Wggnx59g)
+
+[Vídeo - da API](https://youtu.be/w8-xFl1VgWk?si=nSMsxb9n0a3iMrZo)
 
 ## Público-Alvo
 
@@ -304,9 +308,7 @@ O público-alvo são clientes de farmácias que buscam conveniência, recomenda�
 - **Ineficiência no Atendimento no Balcão**: Fornece informações antecipadas para otimizar o atendimento.
 - **Falta de Feedback dos Clientes**: Coleta feedback sobre eficácia dos medicamentos e satisfação.
 
-## Evol
-
-ução em Comparação à Entrega da Sprint Anterior
+## Evolução em Comparação à Entrega da Sprint Anterior
 
 1- Implementação do Thymeleaf: Ajudei a configurar e implementar o Thymeleaf para renderizar formulários HTML, criar listagens de clientes e estruturar a interação entre o back-end e o front-end. Fizemos isso para integrar as funcionalidades de CRUD com templates HTML.
 
