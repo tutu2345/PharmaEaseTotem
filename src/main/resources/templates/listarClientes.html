@@ -7,7 +7,7 @@
 </head>
 <body>
 
-<h1 th:text="#{cliente.lista.titulo}">Lista de Clientes</h1>
+<h1 th:text="#{titulo}">Lista de Clientes</h1>
 
 <!-- Verifica se há clientes -->
 <div th:if="${#lists.isEmpty(clientes)}">
@@ -31,7 +31,7 @@
         <td th:text="${cliente.email}"></td>
         <td>
             <a th:href="@{/clientes/editar/{id}(id=${cliente.id})}" th:text="#{cliente.lista.editar}">Editar</a> |
-            <a th:href="@{/clientes/deletar/{id}(id=${cliente.id})}"
+            <a th:href="@{/clientes/deletar/{id}(id=${cliente.id})}" th:text="#{cliente.lista.deletar}"
                onclick="return confirm('Tem certeza que deseja excluir este cliente?');">Deletar</a>
         </td>
     </tr>
@@ -39,7 +39,7 @@
 </table>
 
 <!-- Botão para adicionar um novo cliente -->
-<a th:href="@{/clientes/novo}">Adicionar Novo Cliente</a>
+<a th:href="@{/clientes/novo}" th:text="#{cliente.lista.adicionar.novo}">Adicionar Novo Cliente</a>
 
 </body>
 </html>
