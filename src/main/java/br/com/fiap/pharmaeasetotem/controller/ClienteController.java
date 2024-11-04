@@ -39,9 +39,14 @@ public class ClienteController {
 
     // Salvar novo cliente (via JSON)
     @PostMapping("/json")
-    public ResponseEntity<String> salvarClienteJson(@RequestBody ClienteDTO clienteDTO) {
-        clienteService.criarCliente(clienteDTO);  // Salva o cliente usando o DTO
-        return ResponseEntity.status(HttpStatus.CREATED).body("Cliente criado com sucesso");  // Retorna resposta de sucesso
+    public String salvarCliente(@ModelAttribute ClienteDTO clienteDTO, Model model) {
+        try {
+            clienteService.criarCliente(clienteDTO);  // Salva o cliente usando o DTO
+            return "redirect:/clientes";  // Redireciona para a lista de clientes
+        } catch (Exception e) {
+            model.addAttribute("error", "Erro ao criar cliente: " + e.getMessage());
+            return "formCliente";  // Retorna ao formulário em caso de erro
+        }
     }
 
     // Editar cliente (carregar formulário com dados do cliente)

@@ -16,27 +16,29 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/", "/home").permitAll() // Permite acesso a essas rotas sem autenticação
-                        .requestMatchers("/h2-console/**").permitAll() // Permite acesso à consola H2
-                        .anyRequest().authenticated() // Qualquer outra requisição exige autenticação
+                        .requestMatchers("/", "/home", "/login", "/h2-console/**").permitAll() // Páginas públicas
+                        .anyRequest().authenticated() // Exige autenticação para outras páginas
                 )
                 .formLogin(form -> form
-                        .loginPage("/login") // Define uma página de login personalizada
-                        .permitAll() // Permite acesso à página de login sem autenticação
+                        .loginPage("/login") // Página de login personalizada
+                        .defaultSuccessUrl("/clientes", true) // Redireciona para "home" após login bem-sucedido
+                        .permitAll() // Permite acesso à página de login
                 )
-                .logout(logout -> logout.permitAll()) // Permite logout sem autenticação
-                .csrf(csrf -> csrf.disable()) // Desabilita proteção CSRF para a consola H2
-                .headers(headers -> headers
-                        .frameOptions(frameOptions -> frameOptions.disable()) // Permite o uso de iframes para o console H2
+                .logout(logout -> logout
+                        .logoutUrl("/logout") // URL personalizada de logout
+                        .logoutSuccessUrl("/login?logout") // Redireciona após logout
+                        .permitAll()
                 );
+
 
         return http.build();
     }
 
     @Bean
     public UserDetailsService userDetailsService() {
+        // Configuração de usuários em memória para desenvolvimento
         UserDetails user = User.withUsername("user")
-                .password("{noop}password") // Usando "{noop}" para indicar que a senha não está codificada (apenas para desenvolvimento)
+                .password("{noop}password") // "{noop}" para senha não codificada (apenas para desenvolvimento)
                 .roles("USER")
                 .build();
 
@@ -45,6 +47,6 @@ public class SecurityConfig {
                 .roles("ADMIN")
                 .build();
 
-        return new InMemoryUserDetailsManager(user, admin); // Adiciona os usuários ao gerenciador de detalhes
+        return new InMemoryUserDetailsManager(user, admin);
     }
 }

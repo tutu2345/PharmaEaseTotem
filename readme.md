@@ -184,25 +184,26 @@ http://localhost:8080/clientes/deletar/{id}
 
 **Semana 1:**
 - **Francis**:
-    - Implementação dos Forms'.
+    - Implementação da funcionalidade de autenticação com Spring Security, incluindo a gestão de perfis de segurança, controlando o acesso às diferentes áreas do sistema.'.
 - **Daniel**:
-    - Implementação do DTO'.
+    - Criação de DTOs para a gestão de usuários e adaptação das regras de segurança, garantindo que apenas usuários autorizados possam realizar ações específicas.
+      '.
 - **Enzo**:
-    - Mudanças no ClenteService e adição do TimeLeaf.
+    - Implementação de recursos de internacionalização, permitindo que o aplicativo se adapte a diferentes idiomas e regiões, melhorando a acessibilidade para usuários de diversas localidades.
 
 **Semana 2:**
 - **Francis**:
-    - Correção de problemas nos forms.
+    - Configuração de recursos de mensageria utilizando RabbitMQ, criando produtores e consumidores para comunicação assíncrona entre os serviços, aprimorando a escalabilidade e eficiência do sistema.
 - **Daniel**:
-    - Testes e correções no DTO'.
+    - Testes e validações na implementação da autenticação e nas regras de segurança, assegurando que as permissões funcionem corretamente.
 - **Enzo**:
-    - Testes envolvendo o TimeLeaf.
+    - Testes de funcionalidade para os recursos de internacionalização, garantindo que todas as strings fossem traduzidas corretamente.
 
 **Semana 3:**
 - **Ramon e Arthur Mitsuo Yamamoto**:
-    - Revisão de código.
+    - Revisão de código das novas implementações de segurança, internacionalização e mensageria, garantindo a conformidade com as melhores práticas.
 - **Arthur Mitsuo Yamamoto**:
-    - Preparação da documentação técnica e do cronograma.
+    - Integração do Spring Boot Actuator para monitoramento do aplicativo, além de preparação da documentação técnica e do cronograma, incluindo as novas funcionalidades de monitoramento e inteligência artificial.
 
 ---
 
@@ -238,6 +239,12 @@ Clique com o botão direito sobre a classe e selecione Run 'TotemApiApplication'
    Com a aplicação em execução, você pode acessar a API localmente através do seguinte endereço:
 
 http://localhost:8080
+
+6. para logar:
+
+username: user
+
+   password: password
 
 
 
@@ -303,15 +310,18 @@ O público-alvo são clientes de farmácias que buscam conveniência, recomenda�
 - **Ineficiência no Atendimento no Balcão**: Fornece informações antecipadas para otimizar o atendimento.
 - **Falta de Feedback dos Clientes**: Coleta feedback sobre eficácia dos medicamentos e satisfação.
 
-## Evol
+## Evolução em Comparação à Entrega da Sprint Anterior
 
-ução em Comparação à Entrega da Sprint Anterior
+1- Funcionalidades de Autenticação com Spring Security: Implementamos a autenticação de usuários utilizando o Spring Security, incluindo a gestão de perfis de segurança. Essa funcionalidade permite controlar o acesso às diferentes áreas do sistema, assegurando que apenas usuários autorizados possam realizar ações específicas.
 
-1- Implementação do Thymeleaf: Ajudei a configurar e implementar o Thymeleaf para renderizar formulários HTML, criar listagens de clientes e estruturar a interação entre o back-end e o front-end. Fizemos isso para integrar as funcionalidades de CRUD com templates HTML.
+2- Implementação de Recursos de Internacionalização: Adicionamos suporte à internacionalização, permitindo que o aplicativo se adapte a diferentes idiomas e regiões. Essa implementação melhora a acessibilidade do sistema para usuários de diversas localidades.
 
-2- Refatoração do Controller com DTOs: Refatoramos o ClienteController para utilizar DTOs (Data Transfer Objects), otimizando a comunicação entre o front-end e o back-end. Isso melhorou a separação de responsabilidades e tornou o código mais limpo e organizado.
+3- Configuração de Recursos de Mensageria: Estabelecemos a configuração de mensageria utilizando RabbitMQ, criando produtores e consumidores para comunicação assíncrona entre os serviços. Isso aprimora a escalabilidade e a eficiência do sistema ao lidar com tarefas que não precisam ser executadas imediatamente.
 
-3- Criação de Instruções para Deploy com Docker: Trabalhamos juntos na configuração do Docker e criamos um fluxo de deploy usando o Docker, além de resolver problemas no GitHub Actions. Com isso, estabelecemos um caminho mais claro para rodar o projeto tanto localmente quanto em um container.
+4- Monitoramento com Spring Boot Actuator: Integramos o Spring Boot Actuator para monitoramento do aplicativo, permitindo acompanhar o estado da aplicação, métricas de desempenho e informações de saúde em tempo real. Isso facilita a detecção de problemas e a manutenção do sistema.
+
+5- Recursos de Inteligência Artificial com Spring AI: Implementamos funcionalidades de inteligência artificial utilizando o framework Spring AI. Essa nova camada de funcionalidade permitirá ao sistema oferecer recomendações e análises preditivas, aumentando a interatividade e a eficiência das operações.
+
 
 ## Diagrama
 
