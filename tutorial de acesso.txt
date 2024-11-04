@@ -1,0 +1,48 @@
+Sprint 4
+
+integrantes:
+
+RM99067 - Daniel dos Santos Araujo Faria
+
+RM551279 - Ramon Cezarino Lopez
+
+RM551283 - Arthur Mitsuo Yamamoto
+
+  
+RM551111 - Enzo Lafer Gallucci
+
+RM99558 - Francineldo Luan Martins Alvelino
+
+link do repositório: https://github.com/tutu2345/PharmaEaseTotem
+
+link do vídeo: https://youtu.be/Y3jsWbET1cw?si=y7GPJ5xAuJcDkEiK
+
+
+
+
+assim que você entrar usando:
+http://localhost:8080
+
+o username é: user
+o password é: password
+
+para acessar o recurso de internacionalização coloque:
+
+?lang=en_us no final da url 
+
+para testar o recurso de mensageria cole: http://localhost:8080/send?message=teste1   
+http://localhost:8080/send?message=teste2
+http://localhost:8080/send?message=teste3
+
+
+para testar o spring boot actuator:
+
+http://localhost:8080/actuator/health
+
+http://localhost:8080/actuator/metrics 
+
+http://localhost:8080/actuator/loggers
+
+http://localhost:8080/actuator/threaddump
+
+
