@@ -13,8 +13,8 @@ Ramon - Java
 
 **1. Definição das Atividades e Responsabilidades:**
 
-- **Francis**:
-    - Desenvolvimento dos forms.
+- **Francineldo Luan Martins Alvelino**:
+    - Desenvolvimento e documentação.
 - **Daniel dos Santos Araujo Faria**:
     - Desenvolvimento do backend para operações relacionadas ao DTO'.
 - **Enzo Lafer Gallucci**:
@@ -325,7 +325,7 @@ O público-alvo são clientes de farmácias que buscam conveniência, recomenda�
 
 ## Diagrama
 
-[Link para baixar imagem do diagrama](https://www.mediafire.com/view/v01bx70h6qxbdy5/Imagem_do_WhatsApp_de_2024-09-14_%25C3%25A0%2528s%2529_18.58.02_156e96f2.jpg/file)
+[Link para baixar imagem do diagrama](https://www.mediafire.com/file/5rvi5d9zcl0bywi/TOTEMAPI+(4).drawio+(1).png/file)
 
 ## Licença
 
