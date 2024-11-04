@@ -13,8 +13,8 @@ Ramon - Java
 
 **1. Definição das Atividades e Responsabilidades:**
 
-- **Francis**:
-    - Desenvolvimento dos forms.
+- **Francineldo Luan Martins Alvelino**:
+    - Desenvolvimento e documentação.
 - **Daniel dos Santos Araujo Faria**:
     - Desenvolvimento do backend para operações relacionadas ao DTO'.
 - **Enzo Lafer Gallucci**:
