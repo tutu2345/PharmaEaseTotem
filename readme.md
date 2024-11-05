@@ -209,7 +209,7 @@ PharmaEaseTotem é uma API Java Spring Boot desenvolvida para gerenciar medicame
 ### 1. Clonar o Repositório
 
 ```bash
-git clone https://github.com/SEU_USUARIO/PharmaEaseTotem.git
+git clone https://github.com/tutu2345/PharmaEaseTotem.git
 cd PharmaEaseTotem
 ```
 
