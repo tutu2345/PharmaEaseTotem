@@ -179,6 +179,119 @@ http://localhost:8080/clientes/deletar/{id}
 - **Atualizar**: `update_resource.json`
 - **Excluir**: `delete_resource.json`
 
+Aqui está um roteiro detalhado para incluir no seu `README.md`, orientando o processo de deploy usando a pipeline CI/CD no Azure DevOps. O objetivo é garantir que o revisor possa facilmente reproduzir e testar o processo:
+
+---
+
+
+
+## Descrição do Projeto, passo a passo para fazer o deploy
+PharmaEaseTotem é uma API Java Spring Boot desenvolvida para gerenciar medicamentos em farmácias. Este projeto utiliza o Azure DevOps para configurar o pipeline CI/CD, garantindo que todo o processo de build, teste e deploy seja automático.
+
+## Pré-requisitos
+
+1. **Conta no Azure** com acesso ao **Azure DevOps** e **Azure App Service**.
+2. **Java** instalado, preferencialmente a versão **Java 21 ou superior**.
+3. **Maven** configurado como ferramenta de build.
+4. **Git** para gerenciar o código fonte.
+
+## Estrutura do Repositório
+
+- **src/**: Código fonte da aplicação
+- **pom.xml**: Arquivo de configuração do Maven para gerenciar dependências e build
+- **azure-pipelines.yml**: Pipeline configurado para CI/CD no Azure DevOps
+- **README.md**: Instruções de configuração e deploy (este arquivo)
+
+---
+
+## Passo a Passo para o Deploy com CI/CD no Azure DevOps
+
+### 1. Clonar o Repositório
+
+```bash
+git clone https://github.com/SEU_USUARIO/PharmaEaseTotem.git
+cd PharmaEaseTotem
+```
+
+### 2. Configurar o Serviço no Azure
+
+1. **Criar um App Service** no portal do Azure:
+   - Acesse **Azure Portal** e vá para **App Services**.
+   - Crie um novo App Service, escolhendo o runtime Java e a versão do Java compatível (Java 21 ou superior).
+   
+2. **Configurar as Variáveis de Ambiente**:
+   - No App Service criado, adicione as seguintes variáveis de ambiente em **Settings > Configuration**:
+     - `DATABASE_URL`: URL de conexão do banco de dados Azure SQL.
+     - `DATABASE_USER`: Nome de usuário para o banco de dados.
+     - `DATABASE_PASSWORD`: Senha para o banco de dados.
+     - `WEBSITE_RUN_FROM_PACKAGE`: Defina como `1` para melhorar a performance do deploy.
+
+### 3. Configurar o Azure DevOps Pipeline
+
+1. No **Azure DevOps**, crie um novo projeto ou acesse um projeto existente.
+2. **Importe o repositório** para o Azure DevOps:
+   - Navegue até **Repos** e importe o repositório do GitHub ou do local onde ele está hospedado.
+3. **Configurar a Pipeline CI/CD**:
+   - Acesse **Pipelines** e crie uma nova pipeline.
+   - Selecione **Existing Azure Pipelines YAML file** e aponte para o arquivo `azure-pipelines.yml` no repositório.
+   - Confirme e salve a pipeline.
+
+### 4. Configurar Conexões e Permissões
+
+1. **Criar um Serviço de Conexão** no Azure DevOps:
+   - No Azure DevOps, vá até **Project Settings > Service connections**.
+   - Crie uma nova conexão do tipo **Azure Resource Manager** e configure com as credenciais da sua conta Azure.
+   - Nomeie o serviço (exemplo: `MyAzureConnection`) para utilizar no `azure-pipelines.yml`.
+
+2. **Atualizar o `azure-pipelines.yml`**:
+   - Certifique-se de que a variável `azureSubscription` no arquivo `azure-pipelines.yml` está configurada com o nome do serviço de conexão criado.
+
+### 5. Iniciar o Pipeline
+
+1. Acesse **Pipelines** no Azure DevOps e inicie manualmente a execução da pipeline.
+2. A pipeline passará pelas seguintes etapas:
+   - **Build**: Compilação da aplicação com Maven.
+   - **Testes**: Execução dos testes configurados no projeto.
+   - **Deploy**: Publicação no Azure App Service.
+3. Monitore as etapas para garantir que todas foram concluídas com sucesso.
+
+### 6. Verificar o Deploy
+
+1. Acesse o URL do App Service no Azure para confirmar que a aplicação está ativa.
+2. Teste a API acessando os endpoints documentados.
+
+---
+
+## Exemplo de Execução Local (opcional)
+
+Se você preferir rodar a aplicação localmente antes de fazer o deploy:
+
+1. **Configure o Banco de Dados**: Certifique-se de que o banco está configurado e atualizado com as tabelas.
+2. **Execute o Maven**:
+
+   ```bash
+   mvn clean install
+   mvn spring-boot:run
+   ```
+
+3. Acesse `http://localhost:8080` para testar localmente.
+
+---
+
+## Erros Comuns e Soluções
+
+- **Erro `release version 22 not supported`**: Certifique-se de que o JDK está configurado para a versão 21 ou compatível com seu código.
+- **Erro de `file in use` no deploy**: Verifique se o App Service permite substituição de arquivos em uso. Considere adicionar uma etapa de limpeza de arquivos no Azure antes do deploy.
+
+---
+
+## Considerações Finais
+
+Este repositório inclui todos os arquivos necessários para configurar e executar a aplicação no Azure via CI/CD. O pipeline automatiza o processo de build, teste e deploy, proporcionando uma experiência contínua de entrega e integração para a aplicação PharmaEaseTotem.
+
+---
+
+Esse roteiro garante que o revisor consiga configurar, testar e verificar a pipeline e o deploy CI/CD no Azure DevOps.
 
 ## Cronograma de Desenvolvimento
 
